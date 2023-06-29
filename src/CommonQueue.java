@@ -2,7 +2,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
 
-
+// класс позволяет сформировать общую очередь после упорядочивания по весу
 public class CommonQueue {
     PriorityQueue<Toy> priorityQueue;
 

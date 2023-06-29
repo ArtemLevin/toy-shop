@@ -1,5 +1,6 @@
 import java.util.Comparator;
 
+// компараратор позволяет сравнивать игрушки по весу. При помощи данного компаратора мы формируем PriorityQueue
 class ToyComparator implements Comparator<Toy> {
 
         @Override

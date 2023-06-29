@@ -1,6 +1,8 @@
 import java.util.List;
 import java.util.PriorityQueue;
 
+//класс позволяет из ранее полученного набора экземпляров игрушек
+// сформировать PriorityQueue для упорядочиавания по весу
 public class Queue {
 
     List<Toy> currentToyList;

@@ -1,3 +1,5 @@
+//здесь описан класс, позволяющий создать тип отдельно взятой одной игрушки. Имеется три поля (ID, вес, название),
+// геттеры, сеттеры и метод toString
 public class Toy {
 
     private String ID;
@@ -42,18 +44,6 @@ public class Toy {
                 ", toyName='" + toyName + '\'' +
                 '}';
     }
-
-//    public int compareTo(Toy other) {
-//        if (other == null) {
-//            return -1; // this < other
-//        }
-//        int delta = this.weight - other.weight;
-//        if (delta != 0) {
-//            return - delta;
-//        }
-//        return this.toyName.compareTo(other.toyName);
-//    }
-
 
 }
 
