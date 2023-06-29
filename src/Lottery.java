@@ -8,10 +8,11 @@ public class Lottery {
         this.toyCommonList = toyCommonList;
     }
 
-    public void getToy(LinkedList<Toy> toyCommonList){
+    public Toy getToy(LinkedList<Toy> toyCommonList){
         Random rnd = new Random();
         Toy yourToy = toyCommonList.get(rnd.nextInt(toyCommonList.size()));// при помощи генератора псевдослучайных
         // чисел определяем индекс игрушки в общей очереди
         System.out.printf("Your toy ID is %s, your toy name is %s \n", yourToy.getID(), yourToy.getToyName());
+        return yourToy;
     }
 }

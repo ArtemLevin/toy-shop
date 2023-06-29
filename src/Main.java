@@ -1,7 +1,10 @@
+import java.io.*;
 import java.util.*;
 
+
+
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner input = new Scanner(System.in);
         List<Toy> initialToyList = new ArrayList<>(); // инициализируем список, который будет хранить типы созданных нами игрушек
         for (int i = 0; i < 3; i++){ // цикл позволяет создать необходимое нам количество типов различных игрушек
@@ -35,10 +38,17 @@ public class Main {
 
         System.out.println();
 
+        File myFile = new File("toyLotteruResult.txt"); // создаем файл для записи результатов розыгрышей
+        FileOutputStream outputStream = new FileOutputStream(myFile);
+
         Lottery lottery = new Lottery(commonQueue); // создаем объект лотереи
         for(int i = 0; i < 10; i++){  //разыгрываем лотерею интересующее число раз
-            lottery.getToy(commonQueue); // вызываем на объекте метод, который случайным образом выбирает игрушку из созданной ранее очереди
+            Toy yourToy = lottery.getToy(commonQueue); // вызываем на объекте метод, который случайным образом выбирает игрушку из созданной ранее очереди
+            String text = "Your toy ID is " + yourToy.getID() + ", your toy name is " + yourToy.getToyName() + "\n";
+            //строка выше позволяет зафиксировать инфорамацию о выигранной игрушке
+            byte[] buffer = text.getBytes(); // помещаем в буфер строку
+            outputStream.write(buffer); // записываем информацию о выигарнной игрушке в файл
         }
-
+        outputStream.close();
     }
 }
