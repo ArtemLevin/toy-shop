@@ -1,4 +1,4 @@
-public class Toy implements Comparable<Toy> {
+public class Toy {
 
     private String ID;
     private int weight;
@@ -43,16 +43,16 @@ public class Toy implements Comparable<Toy> {
                 '}';
     }
 
-    public int compareTo(Toy other) {
-        if (other == null) {
-            return -1; // this < other
-        }
-        int delta = this.weight - other.weight;
-        if (delta != 0) {
-            return - delta;
-        }
-        return this.toyName.compareTo(other.toyName);
-    }
+//    public int compareTo(Toy other) {
+//        if (other == null) {
+//            return -1; // this < other
+//        }
+//        int delta = this.weight - other.weight;
+//        if (delta != 0) {
+//            return - delta;
+//        }
+//        return this.toyName.compareTo(other.toyName);
+//    }
 
 
 }

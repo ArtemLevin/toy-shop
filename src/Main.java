@@ -1,14 +1,9 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.PriorityQueue;
-import java.util.Scanner;
-
-
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        List<Toy> toyList = new ArrayList<>();
+        List<Toy> initialToyList = new ArrayList<>();
         for (int i = 0; i < 3; i++){
             Toy toy = new Toy();
             System.out.print("Введите ID игрушки: ");
@@ -20,20 +15,26 @@ public class Main {
             System.out.print("Введите название игрушки: ");
             toy.setToyName(input.next());
             System.out.println();
-            toyList.add(toy);
+            initialToyList.add(toy);
         }
 
-        PriorityQueue<Toy> queue = new PriorityQueue<>();
-        for (Toy toy:toyList){
-            queue.add(toy);
+        ToySet toySet = new ToySet(initialToyList);
+        List<Toy> currentToySet = toySet.fillingOutToySet(initialToyList);
+
+        System.out.println();
+
+        Queue queue = new Queue(currentToySet);
+        PriorityQueue<Toy> priorityQueue = queue.composePriorityQueue(currentToySet);
+
+        CommonQueue commonQueueComposer = new CommonQueue(priorityQueue);
+        LinkedList<Toy> commonQueue = commonQueueComposer.composeCommonQueue(priorityQueue);
+
+        System.out.println();
+
+        Lottery lottery = new Lottery(commonQueue);
+        for(int i = 0; i < 10; i++){
+            lottery.getToy(commonQueue);
         }
 
-        Toy currentToy = null;
-
-        while((currentToy = queue.poll())!= null) { // Retrieves and removes
-            System.out.println("--- Toy ID: " + currentToy.getID() + " ---");
-            System.out.println("   >> Toy name: " + currentToy.getToyName());
-            System.out.println();
-        }
     }
 }
